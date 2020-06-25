@@ -25,7 +25,7 @@ hold off
     caxis([min(Stressdiff) max(Stressdiff)]);
     view(-37.5, 30)
     grid on
-    title({['Standard deviation of the stress'] ['t =' num2str(t) 'mm and c=' num2str(c)]});
+    title({['Standard deviation of the stress']});
     xlabel('E [MPa]');
     ylabel('k_0 [kPa/mm]');
     zlabel('\sigma [kPa]');

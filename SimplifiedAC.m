@@ -5,13 +5,13 @@ clc; clear; close all;
 
 % Properties for the sleeper - changes when meshstudy is on
 L = 2500; % [mm]
-W = [300 600] ; % [mm]
+W = [300] ; % [mm]
 
 % Stepsize within the sleeper
-stepsize = 10; % [mm]
+stepsize = 50; % [mm]
 
 % Properties for the half-space 
-E = 200; % [MPa]
+E = [200]; % [MPa]
 nu = 0.35; % [-]
 TrackModulus = 50e6; %[Pa] Rail modulus
 
@@ -19,7 +19,7 @@ TrackModulus = 50e6; %[Pa] Rail modulus
 Load = [200e3]; % [N]
 
 % Springcoeffient
-k = 5.9; % [kPa/mm]
+k = linspace(0.1,20,300); % [kPa/mm]
 c = 15; %Factor of resistance
 t = [7]; %[mm] Thickness of geotextile
 
@@ -60,7 +60,7 @@ DeflectionCurveSpringOnOff = 0;
 CompressionCurveSpringEModulus = 0;
 
 % Various resistent values
-StressVariousResistentOnOff = 0;
+StressVariousResistentOnOff = 1;
 
 % Spring-bed coefficient curve
 SpringBedMapOnOff = 0;
@@ -70,7 +70,7 @@ VariousthinknessOnOff = 0;
 
 % Collect all points in a 3d plot with E,k and difference in max-min stress
 % along with stressdifference as a function of k and E
-CollectAllOnOff = 0;
+CollectAllOnOff = 1;
 
 % Plot convergence of iterations
 ConvergenceStudyOnOff = 0;
@@ -132,7 +132,7 @@ for n = 1:length(stepsize) % For loop for stepsize
     % Redesign spring coefficient for first iteration
     [Spring,SpringDef] = NonLinearSpring(q, k(j), omega(j), t(p));
     
-    % Stress and deflection calculations - newx iterations
+    % Stress and deflection calculations - Number of iterations
     for i = 1:iterations
     deflection = deflectionPavement2(stepsize(n), q, nu, E(h) ,X ,Y , SizeX, SizeY);
     [q, Spring, SpringDef] = forcedistribution(Spring, k(j), omega(j), t(p), deflection, q, i, StepByStepFactor);
@@ -260,12 +260,12 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
          % Various Thinkness
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-VariousThickness(X, Y, x, y, k, E, t, c, ThicknessSTD, VariousthinknessOnOff)
+%VariousThickness(X, Y, x, y, k, E, t, c, ThicknessSTD, VariousthinknessOnOff)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
          % Difference in stress for sleeper
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-SleeperDifferences(L, W, k, E, t, x, y, h,c, SizeY, SizeX, QSleeper, SleeperDifferencesOnOff, uSleeper,StressdiffSleeper,SpringDeflectionESleeper)
+%SleeperDifferences(L, W, k, E, t, x, y, h,c, SizeY, SizeX, QSleeper, SleeperDifferencesOnOff, uSleeper,StressdiffSleeper,SpringDeflectionESleeper)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
          % Force influence

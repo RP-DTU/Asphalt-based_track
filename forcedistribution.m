@@ -2,7 +2,7 @@ function [StressNew,kCorrect, SpringDef] = forcedistribution(k, kOriginal, ohm, 
     
     % Calculating 
     SpringDef = StressOld ./ k;
-    SpringHeadDef = StepByStepFactor .* (deflection + SpringDef); % 0.1 factor for minimizing the step iteration
+    SpringHeadDef = StepByStepFactor .* (deflection + SpringDef); % 0.5 factor for minimizing the step iteration
     
     Average = mean(mean(SpringHeadDef));
     udiff = Average - SpringHeadDef;

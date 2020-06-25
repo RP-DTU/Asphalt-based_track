@@ -66,7 +66,7 @@ end
     
     figure(1005)
 plot(c,OmegaStep,'LineWidth',2);
-    title({['Standard deviation of the stress distribution as a function of c'], ['t =' num2str(t) 'mm, E =' num2str(E(h)) 'MPa and k_0 =' num2str(k(1))]});
+    title({['Standard deviation of the stress distribution as a function of c'], ['E = ' num2str(E(h)) ' MPa and k_0 = ' num2str(k(1)) ' kPa/mm']});
     xlabel('c [-]');
     ylabel('\sigma [kPa]');
     grid on
@@ -99,7 +99,7 @@ hold off
     caxis([min(MaxSpring) max(MaxSpring)]);
     view(-37.5, 30)
     grid on
-    title({['Maximum spring-bed coefficent'] ['t =' num2str(t) 'mm and E=' num2str(E) 'MPa']});
+    title({['Maximum spring-bed coefficent'] ['E = ' num2str(E) ' MPa']});
     xlabel('c [-]');
     ylabel('k_0 [kPa/mm]');
     zlabel('k [kPa/mm]');
@@ -132,7 +132,7 @@ hold off
     caxis([min(Stressdiffcandk) max(Stressdiffcandk)]);
     view(-37.5, 30)
     grid on
-    title({['Standard deviation'] ['t =' num2str(t) 'mm and E=' num2str(E) 'MPa']});
+    title({['Standard deviation'] ['E = ' num2str(E) ' MPa']});
     xlabel('c [-]');
     ylabel('k_0 [kPa/mm]');
     zlabel('\sigma [Pa]');

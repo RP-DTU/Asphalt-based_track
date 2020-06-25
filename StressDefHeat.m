@@ -11,8 +11,8 @@ function plot = StressDefHeat(k, E, ohm, h, L, W, x, y, X, Y, c,t, XPavement, YP
     
     %stressmax = max(Stress_max);
     %stressmin = min(Stress_min);
-    stressmax = 51;
-    stressmin = 44;
+    stressmax = 52;
+    stressmin = 46;
     deflectionmax = max(Deflection_max);
     deflectionmin = min(Deflection_min);
     
@@ -27,7 +27,7 @@ function plot = StressDefHeat(k, E, ohm, h, L, W, x, y, X, Y, c,t, XPavement, YP
     if StressOnOff == 1
     figure((h-1)*100+i);
     mesh(X,Y,Q(i).matrix);
-    title({['Stress distribution in the spring-bed'] ['E=', num2str(E(h)), 'MPa, t =' num2str(t) 'mm, k_0=' num2str(k(i)), 'kPa/mm and c =' num2str(c)]});
+    title({['Stress distribution in the spring-bed'] ['E = ', num2str(E(h)), ' MPa and k_0 = ' num2str(k(i)), ' kPa/mm']});
     xlabel('Length [mm]');
     ylabel('Width [mm]');
     zlabel('Stress [kPa]');
@@ -51,7 +51,7 @@ function plot = StressDefHeat(k, E, ohm, h, L, W, x, y, X, Y, c,t, XPavement, YP
     figure((h-1)*100+10+i);
     mesh(XPavement,YPavement,DefPavement(i).matrix);
     set(gca, 'ZDir','reverse')
-    title({['Compression of half-space under and around the sleeper'] ['E=', num2str(E(h) ), 'MPa, t =' num2str(t) 'mm, k_0=' num2str(k(i)), 'kPa/mm and c =' num2str(c)]});
+    title({['Compression of half-space under and around the sleeper'] ['E = ', num2str(E(h)), ' MPa and k_0 = ' num2str(k(i)), ' kPa/mm']});
     xlabel('Length [mm]');
     ylabel('Width [mm]');
     zlabel('Compression [mm]');
@@ -67,7 +67,7 @@ function plot = StressDefHeat(k, E, ohm, h, L, W, x, y, X, Y, c,t, XPavement, YP
     figure((h-1)*100+10+i)
     mesh(X,Y,Def(i).matrix);
     set(gca, 'ZDir','reverse');
-    title({['Compression of the half-space under sleeper'] ['E=', num2str(E(h)), 'MPa, t =' num2str(t) 'mm, k_0=' num2str(k(i)), 'kPa/mm and c =' num2str(c)]});
+    title({['Compression of the half-space under sleeper'] ['E = ', num2str(E(h)), ' MPa and k_0 = ' num2str(k(i)), ' kPa/mm']});
     xlabel('Length [mm]');
     ylabel('Width [mm]');
     zlabel('Compression [mm]');
@@ -101,7 +101,7 @@ function plot = StressDefHeat(k, E, ohm, h, L, W, x, y, X, Y, c,t, XPavement, YP
     contourf(x,y,Q(i).matrix,cline,'ShowText','on')
     caxis([stressmin,stressmax])
     colorbar
-    title({['Heatmap of the stress in the spring-bed [kPa]'] ['E=', num2str(E(h)), 'MPa, t =' num2str(t) 'mm, k_0=' num2str(k(i)), 'kPa/mm and c =' num2str(c)]});
+    title({['Heatmap of the stress in the spring-bed [kPa]'] ['E = ', num2str(E(h)), ' MPa and k_0 = ' num2str(k(i)), ' kPa/mm']});
     xlabel('Length [mm]');
     ylabel('Width [mm]');
     if W == 300

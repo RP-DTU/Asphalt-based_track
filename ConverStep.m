@@ -7,7 +7,7 @@ if ConverStepOnOff ==1
             hold on 
             plot(stepsize,StepStressMin(j,:));
             plot(stepsize,StepStressMin(j,:),'ro');
-            title({['Mesh convergence for'] ['E = ', num2str(E), 'MPa and k_0 = ', num2str(k(j)),'kPa/mm']});
+            title({['Mesh convergence study'] ['E = ', num2str(E), ' MPa and k_0 = ', num2str(k(j)),' kPa/mm']});
             xlabel('a [mm]');
             ylabel('Minimum stress [kPa]');
            % ylim([min(min(StepStress)),max(max(StepStress))])
@@ -22,7 +22,7 @@ if ConverStepOnOff ==1
             hold on 
             plot(stepsize,StepStressMax(j,:));
             plot(stepsize,StepStressMax(j,:),'ro');
-            title({['Mesh convergence for'] ['E = ', num2str(E), 'MPa and k_0 = ', num2str(k(j)),'kPa/mm']});
+            title({['Mesh convergence study'] ['E = ', num2str(E), ' MPa and k_0 = ', num2str(k(j)),' kPa/mm']});
             xlabel('a [mm]');
             ylabel('Maximum stress [kPa]');
            % ylim([min(min(StepStress)),max(max(StepStress))])
@@ -36,7 +36,7 @@ if ConverStepOnOff ==1
             hold on 
             plot(stepsize,StepStd(j,:));
             plot(stepsize,StepStd(j,:),'ro');
-            title({['Mesh convergence for'] ['E = ', num2str(E), 'MPa and k_0 = ', num2str(k(j)),'kPa/mm']});
+            title({['Mesh convergence study'] ['E = ', num2str(E), ' MPa and k_0 = ', num2str(k(j)),' kPa/mm']});
             xlabel('a [mm]');
             ylabel('\sigma [kPa]');
            % ylim([min(min(StepStress)),max(max(StepStress))])
